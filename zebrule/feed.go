@@ -42,6 +42,7 @@ func (d Destination) feed(report Aluminum) error {
 		}
 		j = append(j, byte('\n'))
 		hose := d.firehose.(*firehose.Firehose)
+
 		_, err = hose.PutRecord(&firehose.PutRecordInput{
 			Record:             &firehose.Record{Data: j},
 			DeliveryStreamName: d.ID,
